@@ -89,10 +89,12 @@ README describes the packages themselves.
   `.s` files by hand: change the generator, run `go generate -v -x` in the
   `_generate` directory, and commit the regenerated output. CI's `generate` job
   fails if the committed files differ from the generator's output.
-- The arm64 files are lowered from the same amd64 program by the fork, which
-  the `_generate` modules import as `github.com/honeycombio/avo`; keep all
-  three on the same fork commit. A change to the generator changes both
-  architectures; build and test both.
+- arm64 support has been removed from this fork: the `*_arm64` implementation
+  files are deleted, the `_generate` directives emit amd64 only, and the
+  zstd, huff0 and s2 packages deliberately fail to build on arm64
+  (`arm64_disabled.go` in each). The `_generate` modules still import the
+  arm64-lowering avo fork, `github.com/honeycombio/avo`; keep all three on
+  the same fork commit, and never reintroduce arm64 output.
 - When moving the avo pin, regenerate and check the output is byte-identical
   unless a change is intended, so unrelated printer changes don't slip into a
   review.

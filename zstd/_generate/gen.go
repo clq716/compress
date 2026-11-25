@@ -1,6 +1,6 @@
 package main
 
-//go:generate go run gen.go -out ../seqdec.s -arch amd64,arm64 -arm64-promote-stack-slots -arm64-pair-vector-moves -pkg=zstd
+//go:generate go run gen.go -out ../seqdec.s -arch amd64 -pkg=zstd
 
 import (
 	"fmt"

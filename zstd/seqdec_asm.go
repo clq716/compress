@@ -1,4 +1,4 @@
-//go:build (amd64 || arm64) && !noasm && gc
+//go:build amd64 && !noasm && gc
 
 package zstd
 
@@ -12,7 +12,7 @@ import (
 // codes, and the decode/decodeSync/executeSimple wrappers. Each architecture
 // supplies the small dispatch helpers (decodeAsm, decodeSyncAsm,
 // executeSimpleAsm) that select the concrete asm routine — amd64 also chooses a
-// BMI2 variant, arm64 has a single implementation.
+// BMI2 variant.
 
 type decodeSyncAsmContext struct {
 	llTable     []decSymbol

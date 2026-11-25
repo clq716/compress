@@ -12,7 +12,7 @@ import (
 // in seqdec_asm.go; this file only declares the amd64 asm routines and the
 // dispatch helpers that pick the BMI2 / non-BMI2 (and 56-bit / safe) variant.
 
-// See seqdec_arm64.go. Disabled here: on Sapphire Rapids, Granite Rapids
+// Two-pass decoding is disabled: on Sapphire Rapids, Granite Rapids
 // and Zen 4 the two-pass decode costs 7-12% on real data; their caches
 // already cover the offsets involved.
 var (

@@ -1,4 +1,4 @@
-//go:build (!amd64 && !arm64) || !gc || noasm
+//go:build !amd64 || !gc || noasm
 
 package zstd
 
@@ -8,7 +8,7 @@ import (
 	"math"
 )
 
-// See seqdec_arm64.go; the pure Go decoder has neither path.
+// Two-pass decoding is never enabled on this build.
 var (
 	twoPassMinFarShare     = 257 // never: the share is at most 256
 	decodeTwoPassMinWindow = math.MaxInt

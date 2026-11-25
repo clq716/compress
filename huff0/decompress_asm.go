@@ -1,9 +1,8 @@
-//go:build (amd64 || arm64) && !noasm && gc
+//go:build amd64 && !noasm && gc
 
 // This file contains the specialisation of Decoder.Decompress4X
 // and Decoder.Decompress1X that use an asm implementation of their main loops.
-// The asm function stubs and any per-arch dispatch live in decompress_amd64.go
-// and decompress_arm64.go.
+// The asm function stubs and dispatch live in decompress_amd64.go.
 package huff0
 
 import (
